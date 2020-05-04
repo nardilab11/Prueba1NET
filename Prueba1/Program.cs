@@ -47,6 +47,11 @@ namespace Prueba1
                             Console.WriteLine("--------------------------------");
                             Console.Write("Ingrese el estado del estanque (0,0 a 100,0): ");
                             float estadoE = float.Parse(Console.ReadLine());
+                            while(estadoE < 0.0f | estadoE > 100.0f)
+                            {
+                                Console.Write("Valor incorrecto. Ingrese el estado del estanque (0,0 a 100,0): ");
+                                estadoE = float.Parse(Console.ReadLine());
+                            }
                             Console.Write("Ingrese la capacidad del estanque: ");
                             float capacidadE = float.Parse(Console.ReadLine());
                             Console.Write("Ingrese los litros del estanque: ");
@@ -58,8 +63,18 @@ namespace Prueba1
                             Console.WriteLine("--------------------------------");
                             Console.Write("Ingrese el estado del mezclador (0,0 a 100,0): ");
                             float estadoMe = float.Parse(Console.ReadLine());
+                            while (estadoMe < 0.0f | estadoMe > 100.0f)
+                            {
+                                Console.Write("Valor incorrecto. Ingrese el estado del mezclador (0,0 a 100,0): ");
+                                estadoMe = float.Parse(Console.ReadLine());
+                            }
                             Console.Write("Ingrese el tipo del mezclador (CARBURADOR o INYECTOR): ");
                             string tipoMe = Console.ReadLine();
+                            while(!(tipoMe.Equals("CARBURADOR") | tipoMe.Equals("INYECTOR")))
+                            {
+                                Console.Write("Valor incorrecto. Ingrese exactamente como se muestra (CARBURADOR o INYECTOR): ");
+                                tipoMe = Console.ReadLine();
+                            }
                             Console.WriteLine("--------------------------------");
                             me = new Mezclador(estadoMe, tipoMe);
 
@@ -67,6 +82,11 @@ namespace Prueba1
                             Console.WriteLine("--------------------------------");
                             Console.Write("Ingrese el estado del motor (0,0 a 100,0): ");
                             float estadoMo = float.Parse(Console.ReadLine());
+                            while (estadoMo < 0.0f | estadoMo > 100.0f)
+                            {
+                                Console.Write("Valor incorrecto. Ingrese el estado del motor (0,0 a 100,0): ");
+                                estadoMo = float.Parse(Console.ReadLine());
+                            }
                             Console.Write("Ingrese el ID del motor: ");
                             string idMo = Console.ReadLine();
                             Console.Write("Ingrese el tipo del motor: ");
@@ -75,6 +95,11 @@ namespace Prueba1
                             float cilindradaMo = float.Parse(Console.ReadLine());
                             Console.Write("Ingrese los tiempos del motor (DOS_TIEMPOS o CUATRO_TIEMPOS): ");
                             string tiemposMo = Console.ReadLine();
+                            while (!(tiemposMo.Equals("DOS_TIEMPOS") | tiemposMo.Equals("CUATRO_TIEMPOS")))
+                            {
+                                Console.Write("Valor incorrecto. Ingrese exactamente como se muestra (DOS_TIEMPOS o CUATRO_TIEMPOS): ");
+                                tiemposMo = Console.ReadLine();
+                            }
                             Console.WriteLine("--------------------------------");
                             mo = new Motor(estadoMo, idMo, tipoMo, cilindradaMo, tiemposMo);
 
@@ -90,8 +115,18 @@ namespace Prueba1
                                 Console.WriteLine("--------------------------------");
                                 Console.Write("Ingrese el estado de la rueda (0,0 a 100,0): ");
                                 float estadoR = float.Parse(Console.ReadLine());
+                                while (estadoR < 0.0f | estadoR > 100.0f)
+                                {
+                                    Console.Write("Valor incorrecto. Ingrese el estado de la rueda (0,0 a 100,0): ");
+                                    estadoR = float.Parse(Console.ReadLine());
+                                }
                                 Console.Write("Ingrese el recubrimiento de la rueda (FENOL, HULE o POLIUTERANO): ");
                                 string recubrimientoR = Console.ReadLine();
+                                while (!(recubrimientoR.Equals("FENOL") | recubrimientoR.Equals("HULE") | recubrimientoR.Equals("POLIUTERANO")))
+                                {
+                                    Console.Write("Valor incorrecto. Ingrese exactamente como se muestra (FENOL, HULE o POLIUTERANO): ");
+                                    recubrimientoR = Console.ReadLine();
+                                }
                                 Console.Write("Ingrese el primer número del rango del durómetro: ");
                                 int durometro1R = int.Parse(Console.ReadLine());
                                 Console.Write("Ingrese el segundo número del rango del durómetro: ");
@@ -180,7 +215,7 @@ namespace Prueba1
 
             }catch(Exception ex)
             {
-                Console.WriteLine("Error. Ingreso incorrecto. " + ex.Message);
+                Console.WriteLine("Error. Valor incorrecto. " + ex.Message);
             }
         }
     }
